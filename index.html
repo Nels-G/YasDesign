@@ -1,0 +1,2679 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YAS Togo | Internet Haut Débit & Solutions Digitales</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0e3a7e;
+            --primary-yellow: #ffd200;
+            --dark-blue: #082456;
+            --light-blue: #1a56b8;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e0e0e0;
+            --dark-gray: #444;
+            --white: #ffffff;
+            --black: #000000;
+            --shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --gradient-blue: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--dark-gray);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 0;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .top-bar {
+            background: var(--gradient-blue);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+
+        .top-bar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 25px;
+        }
+
+        .contact-info a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary-yellow);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: var(--white);
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-yellow);
+            transform: translateY(-2px);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+        }
+
+        .logo {
+            height: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 100%;
+            transition: var(--transition);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-yellow);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after, nav ul li a.active::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--primary-blue);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .cta-btn {
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .primary-btn {
+            background-color: var(--primary-yellow);
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-yellow);
+        }
+
+        .primary-btn:hover {
+            background-color: transparent;
+            color: var(--primary-yellow);
+            box-shadow: 0 5px 15px rgba(255, 210, 0, 0.3);
+        }
+
+        .secondary-btn {
+            background-color: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .secondary-btn:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            box-shadow: 0 5px 15px rgba(14, 58, 126, 0.2);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            z-index: 1001;
+        }
+
+        /* Hero Section - Modernized */
+        .hero {
+            background: var(--gradient-blue);
+            margin-top: 93px;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            gap: 50px;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: var(--primary-yellow);
+            display: block;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hero-btn {
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+        }
+
+        .hero-primary-btn {
+            background-color: var(--primary-yellow);
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-yellow);
+            box-shadow: 0 10px 20px rgba(255, 210, 0, 0.3);
+        }
+
+        .hero-primary-btn:hover {
+            background-color: transparent;
+            color: var(--primary-yellow);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 210, 0, 0.4);
+        }
+
+        .hero-secondary-btn {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-secondary-btn:hover {
+            background-color: var(--white);
+            color: var(--primary-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            max-height: 500px;
+            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.2));
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0MCIgaGVpZ2h0PSI2MDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICA8cGF0aCBkPSJNMCAwYzI0MC43NyAwIDMwMC42NTUgMTM5LjUzIDQ0My4zMDUgMTU5Ljg5MkM2MjcuMzMyIDE4NSA3ODUuMTEgNzYuNDk0IDkzMy41MjMgMTU5Ljg5MmMxMTYuNjY4IDY1LjQ2MyAyOTMuMDc2IDEwNy4wOCA1MDYuNDc3IDEwIDAgMCAwIDQzMC4xMDggMCA0MzAuMTA4SDBWMHoiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iLjA1Ii8+Cjwvc3ZnPg==');
+            background-size: cover;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .hero-shape {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            right: -200px;
+            top: -200px;
+            z-index: 0;
+        }
+
+        /* Stats Section */
+        .stats {
+            background-color: var(--white);
+            padding: 60px 0;
+            position: relative;
+            z-index: 3;
+            margin-top: -50px;
+        }
+
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+
+        .stat-text {
+            font-size: 1rem;
+            color: var(--dark-gray);
+            font-weight: 500;
+        }
+
+        /* Services Section - Modernized */
+        .services {
+            padding: 100px 0;
+            background-color: var(--light-gray);
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--primary-blue);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--primary-yellow);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 20px auto 0;
+            color: var(--dark-gray);
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-blue);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .service-icon {
+            height: 200px;
+            background-color: var(--primary-blue);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3.5rem;
+            color: var(--primary-yellow);
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            background-color: var(--primary-yellow);
+            color: var(--primary-blue);
+        }
+
+        .service-content {
+            padding: 30px;
+        }
+
+        .service-content h3 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-content h3 {
+            color: var(--dark-blue);
+        }
+
+        .service-content p {
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-content p {
+            color: var(--dark-gray);
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .service-link:hover {
+            color: var(--primary-yellow);
+            gap: 12px;
+        }
+
+        /* Plans Section - Modernized */
+        .plans {
+            padding: 100px 0;
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .plan-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .popular-tag {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background-color: var(--primary-yellow);
+            color: var(--primary-blue);
+            transform: rotate(45deg);
+            padding: 8px 40px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            z-index: 2;
+            width: 150px;
+            text-align: center;
+        }
+
+        .plan-header {
+            background: var(--gradient-blue);
+            color: var(--white);
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .plan-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .plan-price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .plan-price span {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-top: 10px;
+            margin-right: 5px;
+        }
+
+        .plan-billing {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .plan-features {
+            padding: 40px 30px;
+        }
+
+        .plan-features ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .plan-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--medium-gray);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: var(--primary-blue);
+            font-size: 1.3rem;
+            min-width: 20px;
+        }
+
+        .plan-button {
+            display: block;
+            background: var(--gradient-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 15px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(14, 58, 126, 0.2);
+        }
+
+        .plan-button:hover {
+            background: var(--primary-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(14, 58, 126, 0.3);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background-color: var(--light-gray);
+            position: relative;
+        }
+
+        .features-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .features-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .features-image img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .features-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--gradient-blue);
+            color: var(--white);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(14, 58, 126, 0.3);
+            max-width: 250px;
+            z-index: 2;
+        }
+
+        .features-badge h4 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .features-badge p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .features-content {
+            flex: 1;
+        }
+
+        .features-list {
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .feature-icon {
+            background-color: rgba(14, 58, 126, 0.1);
+            color: var(--primary-blue);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature-text h3 {
+            color: var(--primary-blue);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-text p {
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        /* Testimonials Section - Modernized */
+        .testimonials {
+            padding: 100px 0;
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .testimonials-slider {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 0 20px;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            margin: 20px 0;
+        }
+
+        .testimonial-content {
+            margin-bottom: 30px;
+            font-style: italic;
+            color: var(--dark-gray);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .testimonial-content::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 4rem;
+            color: var(--primary-yellow);
+            opacity: 0.3;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .author-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--primary-yellow);
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+            opacity: 0.8;
+        }
+
+        .rating {
+            color: var(--primary-yellow);
+            margin-top: 5px;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .slider-arrow {
+            background-color: var(--white);
+            color: var(--primary-blue);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid var(--medium-gray);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .slider-arrow:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(14, 58, 126, 0.2);
+        }
+
+        .slider-dots {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--medium-gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-dot.active {
+            background-color: var(--primary-blue);
+            transform: scale(1.2);
+        }
+
+        /* App Download Section - Modernized */
+        .app-download {
+            padding: 100px 0;
+            background: var(--gradient-blue);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .app-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .app-content h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .app-content h2 span {
+            color: var(--primary-yellow);
+            display: block;
+        }
+
+        .app-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .app-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .app-btn {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: var(--white);
+            color: var(--primary-blue);
+            padding: 15px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .app-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .app-btn-icon {
+            font-size: 2rem;
+        }
+
+        .app-btn-text {
+            text-align: left;
+        }
+
+        .app-btn-text small {
+            font-size: 0.8rem;
+            display: block;
+            opacity: 0.7;
+        }
+
+        .app-btn-text span {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .app-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .app-image img {
+            max-width: 100%;
+            max-height: 400px;
+            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.3));
+        }
+
+        .app-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0MCIgaGVpZ2h0PSI2MDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICA8cGF0aCBkPSJNMCAwYzI0MC43NyAwIDMwMC42NTUgMTM5LjUzIDQ0My4zMDUgMTU5Ljg5MkM2MjcuMzMyIDE4NSA3ODUuMTEgNzYuNDk0IDkzMy41MjMgMTU5Ljg5MmMxMTYuNjY4IDY1LjQ2MyAyOTMuMDc2IDEwNy4wOCA1MDYuNDc3IDEwIDAgMCAwIDQzMC4xMDggMCA0MzAuMTA4SDBWMHoiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iLjA1Ii8+Cjwvc3ZnPg==');
+            background-size: cover;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .app-shape {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            left: -200px;
+            bottom: -200px;
+            z-index: 0;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+
+        .newsletter-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 30px;
+            text-align: center;
+        }
+
+        .newsletter-box {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 60px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: var(--gradient-blue);
+        }
+
+        .newsletter h3 {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .newsletter p {
+            color: var(--dark-gray);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 15px 25px;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .newsletter-btn {
+            background: var(--gradient-blue);
+            color: var(--white);
+            border: none;
+            padding: 15px 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .newsletter-btn:hover {
+            background: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+
+        /* Contact Section - Modernized */
+        .contact {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info-block {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .contact-info-block:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info-block h3 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-yellow);
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .contact-icon {
+            background-color: rgba(14, 58, 126, 0.1);
+            color: var(--primary-blue);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .contact-text p, .contact-text a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            line-height: 1.6;
+        }
+
+        .contact-text a:hover {
+            color: var(--primary-blue);
+        }
+
+        .contact-form {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            grid-column: span 2;
+        }
+
+        .contact-form h3 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-yellow);
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 8px;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(14, 58, 126, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--gradient-blue);
+            color: var(--white);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(14, 58, 126, 0.2);
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(14, 58, 126, 0.3);
+        }
+
+        /* Footer - Modernized */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding-top: 80px;
+            position: relative;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-logo {
+            margin-bottom: 25px;
+        }
+
+        .footer-logo img {
+            height: 50px;
+        }
+
+        .footer-about p {
+            margin-bottom: 25px;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social a {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .footer-social a:hover {
+            background-color: var(--primary-yellow);
+            color: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h4 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: var(--primary-yellow);
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-yellow);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--primary-yellow);
+            transform: translateX(5px);
+        }
+
+        .footer-links a i {
+            font-size: 0.8rem;
+        }
+
+        .footer-contact h4 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: var(--primary-yellow);
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-contact h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-yellow);
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            opacity: 0.8;
+            align-items: flex-start;
+        }
+
+        .footer-contact-icon {
+            font-size: 1.2rem;
+            color: var(--primary-yellow);
+            margin-top: 3px;
+        }
+
+        .footer-contact-text p, .footer-contact-text a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+            line-height: 1.6;
+        }
+
+        .footer-contact-text a:hover {
+            color: var(--primary-yellow);
+        }
+
+        .footer-newsletter h4 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: var(--primary-yellow);
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-newsletter h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-yellow);
+        }
+
+        .footer-newsletter p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .newsletter-btn {
+            background: var(--gradient-blue);
+            color: var(--white);
+            border: none;
+            padding: 15px 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .newsletter-btn:hover {
+            background: var(--primary-blue);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 30px 0;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .footer-shape {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0wIDBjMTIwLjM4NSAwIDE1MC4zMjggNjkuNzY1IDIyMS42NTIgNzkuOTQ2QzMxMy42NjYgOTIuNSAzOTIuNTU1IDM4LjI0NyA0NjYuNzYxIDc5Ljk0NmM1OC4zMzQgMzIuNzMxIDE0Ni41MzggNTMuNTQgMjUzLjIzOSA1IDAgMCAwIDIxNS4wNTQgMCAyMTUuMDU0SDBWMHoiIGZpbGw9IiNGRkQyMDAiIGZpbGwtb3BhY2l0eT0iLjEiLz4KPC9zdmc+');
+            background-size: cover;
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .app-content h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media screen and (max-width: 992px) {
+            .hero-container, .app-container, .features-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 50px;
+            }
+
+            .hero-buttons, .app-buttons {
+                justify-content: center;
+            }
+
+            .hero-image, .app-image {
+                order: -1;
+            }
+
+            .features-image {
+                margin-bottom: 60px;
+            }
+
+            .features-badge {
+                right: 50%;
+                transform: translateX(50%);
+                bottom: -40px;
+            }
+
+            .contact-form {
+                grid-column: span 1;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .top-bar {
+                font-size: 0.8rem;
+            }
+            
+            .contact-info {
+                gap: 15px;
+            }
+            
+            .nav-container {
+                padding: 10px 20px;
+            }
+
+            .logo {
+                height: 40px;
+            }
+
+            nav ul, .cta-buttons {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                margin-top: 73px;
+                padding: 80px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+
+            .app-content h2 {
+                font-size: 2.2rem;
+            }
+
+            .app-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .newsletter-box {
+                padding: 40px 30px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                border-radius: 8px;
+            }
+
+            .newsletter-input {
+                border-radius: 8px 8px 0 0;
+            }
+
+            .newsletter-btn {
+                border-radius: 0 0 8px 8px;
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .top-bar-container {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px 15px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 8px;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-btn {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .service-icon {
+                height: 180px;
+                font-size: 3rem;
+            }
+
+            .testimonial-card {
+                padding: 30px 20px;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-links, .footer-contact, .footer-newsletter {
+                margin-top: 30px;
+            }
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary-blue);
+            z-index: 2000;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            padding: 30px 25px;
+            overflow-y: auto;
+        }
+
+        .mobile-nav.active {
+            transform: translateX(0);
+        }
+
+        .mobile-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .mobile-logo img {
+            height: 40px;
+        }
+
+        .close-menu-btn {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-menu-btn:hover {
+            color: var(--primary-yellow);
+            transform: rotate(90deg);
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .mobile-nav li {
+            margin-bottom: 15px;
+        }
+
+        .mobile-nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: block;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mobile-nav a i {
+            font-size: 1rem;
+            width: 20px;
+        }
+
+        .mobile-nav a:hover {
+            color: var(--primary-yellow);
+            transform: translateX(10px);
+        }
+
+        .mobile-cta-buttons {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .mobile-cta-btn {
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .mobile-primary-btn {
+            background-color: var(--primary-yellow);
+            color: var(--primary-blue);
+        }
+
+        .mobile-primary-btn:hover {
+            background-color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .mobile-secondary-btn {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .mobile-secondary-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .mobile-contact-info {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: var(--white);
+            opacity: 0.9;
+        }
+
+        .mobile-contact-item i {
+            color: var(--primary-yellow);
+            font-size: 1.2rem;
+            width: 20px;
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .preloader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .spinner {
+            width: 70px;
+            height: 70px;
+            border: 5px solid rgba(14, 58, 126, 0.1);
+            border-top-color: var(--primary-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--gradient-blue);
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(14, 58, 126, 0.3);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-blue);
+            transform: translateY(-5px) !important;
+            box-shadow: 0 8px 25px rgba(14, 58, 126, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="top-bar">
+            <div class="top-bar-container">
+                <div class="contact-info">
+                    <a href="tel:+22822222222"><i class="fas fa-phone"></i> +228 22 22 22 22</a>
+                    <a href="mailto:contact@yas.tg"><i class="fas fa-envelope"></i> contact@yas.tg</a>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="jem_logo.svg" alt="YAS Togo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Accueil</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Forfaits</a></li>
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="cta-buttons">
+                <a href="#" class="cta-btn primary-btn"><i class="fas fa-user"></i> Espace Client</a>
+                <a href="#" class="cta-btn secondary-btn"><i class="fas fa-shopping-cart"></i> Souscrire</a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <div class="mobile-nav-header">
+            <a href="#" class="mobile-logo">
+                <img src="logo2.png" alt="YAS Togo">
+            </a>
+            <button class="close-menu-btn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul>
+            <li><a href="#" class="active"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="#"><i class="fas fa-wifi"></i> Services</a></li>
+            <li><a href="#"><i class="fas fa-tags"></i> Forfaits</a></li>
+            <li><a href="#"><i class="fas fa-info-circle"></i> À propos</a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+        <div class="mobile-cta-buttons">
+            <a href="#" class="mobile-cta-btn mobile-primary-btn"><i class="fas fa-user"></i> Espace Client</a>
+            <a href="#" class="mobile-cta-btn mobile-secondary-btn"><i class="fas fa-shopping-cart"></i> Souscrire</a>
+        </div>
+        <div class="mobile-contact-info">
+            <div class="mobile-contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+228 22 22 22 22</span>
+            </div>
+            <div class="mobile-contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>contact@yas.tg</span>
+            </div>
+            <div class="mobile-contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Lomé, Togo</span>
+            </div>
+            <div class="social-icons" style="margin-top: 20px;">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-shape"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Internet Haut Débit <span>pour tous au Togo</span></h1>
+                <p>Découvrez notre connexion internet ultra-rapide et fiable avec des forfaits adaptés à tous vos besoins. Restez connecté où que vous soyez.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="hero-btn hero-primary-btn"><i class="fas fa-rocket"></i> Découvrir nos offres</a>
+                    <a href="#" class="hero-btn hero-secondary-btn"><i class="fas fa-play"></i> Voir la vidéo</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="logo2.png" alt="Internet Haut Débit">
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-number" data-count="10000">0</div>
+                <div class="stat-text">Clients satisfaits</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-wifi"></i>
+                </div>
+                <div class="stat-number" data-count="95">0</div>
+                <div class="stat-text">Couverture nationale</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <div class="stat-number" data-count="200">0</div>
+                <div class="stat-text">Mbps max</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <div class="stat-number" data-count="24">0</div>
+                <div class="stat-text">Support 24/7</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="section-container">
+            <div class="section-title">
+                <h2>Nos Services</h2>
+                <p>Découvrez notre gamme complète de services internet haut débit conçus pour répondre à tous vos besoins de connexion.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Internet Résidentiel</h3>
+                        <p>Une connexion internet ultra-rapide et stable spécialement conçue pour votre foyer avec un support technique dédié.</p>
+                        <a href="#" class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Internet Professionnel</h3>
+                        <p>Des solutions sur mesure pour les entreprises avec des débits garantis et une disponibilité optimale.</p>
+                        <a href="#" class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Internet Hôtelier</h3>
+                        <p>Offrez à vos clients une connexion haut débit sécurisée et performante dans tout votre établissement.</p>
+                        <a href="#" class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section class="plans">
+        <div class="section-container">
+            <div class="section-title">
+                <h2>Nos Forfaits Internet</h2>
+                <p>Choisissez le forfait qui correspond le mieux à vos besoins de connexion internet.</p>
+            </div>
+            <div class="plans-grid">
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <div class="plan-name">Basique</div>
+                        <div class="plan-price"><span>à partir de</span> 15.000</div>
+                        <div class="plan-billing">FCFA / mois</div>
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li><i class="fas fa-check check-icon"></i> Débit 10 Mbps</li>
+                            <li><i class="fas fa-check check-icon"></i> Illimité</li>
+                            <li><i class="fas fa-check check-icon"></i> Installation gratuite</li>
+                            <li><i class="fas fa-check check-icon"></i> Support technique 24/7</li>
+                            <li><i class="fas fa-check check-icon"></i> 1 mois d'essai gratuit</li>
+                        </ul>
+                        <a href="#" class="plan-button">Souscrire maintenant</a>
+                    </div>
+                </div>
+                <div class="plan-card">
+                    <div class="popular-tag">Populaire</div>
+                    <div class="plan-header">
+                        <div class="plan-name">Standard</div>
+                        <div class="plan-price"><span>à partir de</span> 25.000</div>
+                        <div class="plan-billing">FCFA / mois</div>
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li><i class="fas fa-check check-icon"></i> Débit 30 Mbps</li>
+                            <li><i class="fas fa-check check-icon"></i> Illimité</li>
+                            <li><i class="fas fa-check check-icon"></i> Installation gratuite</li>
+                            <li><i class="fas fa-check check-icon"></i> Support technique 24/7</li>
+                            <li><i class="fas fa-check check-icon"></i> Routeur Wi-Fi inclus</li>
+                        </ul>
+                        <a href="#" class="plan-button">Souscrire maintenant</a>
+                    </div>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <div class="plan-name">Premium</div>
+                        <div class="plan-price"><span>à partir de</span> 50.000</div>
+                        <div class="plan-billing">FCFA / mois</div>
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li><i class="fas fa-check check-icon"></i> Débit 100 Mbps</li>
+                            <li><i class="fas fa-check check-icon"></i> Illimité</li>
+                            <li><i class="fas fa-check check-icon"></i> Installation gratuite</li>
+                            <li><i class="fas fa-check check-icon"></i> Support VIP 24/7</li>
+                            <li><i class="fas fa-check check-icon"></i> Routeur Wi-Fi haut débit</li>
+                        </ul>
+                        <a href="#" class="plan-button">Souscrire maintenant</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="section-container">
+            <div class="features-container">
+                <div class="features-image">
+                    <img src="YAS.jpg" alt="Pourquoi choisir YAS">
+                    <div class="features-badge">
+                        <h4>+10 ans</h4>
+                        <p>d'expérience dans le domaine des télécommunications</p>
+                    </div>
+                </div>
+                <div class="features-content">
+                    <div class="section-title" style="text-align: left; margin-bottom: 30px;">
+                        <h2>Pourquoi choisir YAS ?</h2>
+                        <p style="margin-left: 0;">Nous nous engageons à fournir la meilleure expérience internet à nos clients.</p>
+                    </div>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h3>Connexion ultra-rapide</h3>
+                                <p>Profitez de débits allant jusqu'à 200 Mbps pour une navigation fluide et sans interruption.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h3>Sécurité renforcée</h3>
+                                <p>Notre réseau sécurisé protège vos données et votre vie privée en permanence.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h3>Support 24/7</h3>
+                                <p>Notre équipe technique est disponible à tout moment pour répondre à vos besoins.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="section-container">
+            <div class="section-title">
+                <h2>Témoignages</h2>
+                <p>Découvrez ce que nos clients disent de nos services internet.</p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonials-track">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                Depuis que j'ai souscrit à YAS, je n'ai plus de problèmes de connexion. Le débit est stable et rapide, parfait pour mon travail en télétravail et pour le streaming en famille.
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Koffi Adjo">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Koffi Adjo</h4>
+                                    <p>Entrepreneur, Lomé</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                Excellent service client et connexion fiable. En tant qu'hôtelier, c'est essentiel pour mes clients et YAS a su répondre parfaitement à mes attentes avec un forfait adapté.
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ametepe Yao">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Ametepe Yao</h4>
+                                    <p>Gérant d'hôtel, Kara</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                Après avoir essayé plusieurs fournisseurs, YAS est de loin le meilleur en termes de rapport qualité-prix. La vitesse est constante même en heure de pointe.
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Doevi Ama">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Doevi Ama</h4>
+                                    <p>Étudiante, Sokodé</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <div class="slider-arrow prev-arrow">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="slider-arrow next-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                <div class="slider-dots">
+                    <div class="slider-dot active"></div>
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Download Section -->
+    <section class="app-download">
+        <div class="app-shape"></div>
+        <div class="app-overlay"></div>
+        <div class="app-container">
+            <div class="app-content">
+                <h2>Téléchargez notre <span>application mobile</span></h2>
+                <p>Gérez votre abonnement, suivez votre consommation et payez vos factures en quelques clics grâce à notre application mobile disponible sur iOS et Android.</p>
+                <div class="app-buttons">
+                    <a href="#" class="app-btn">
+                        <i class="fab fa-apple app-btn-icon"></i>
+                        <div class="app-btn-text">
+                            <small>Télécharger sur</small>
+                            <span>App Store</span>
+                        </div>
+                    </a>
+                    <a href="#" class="app-btn">
+                        <i class="fab fa-google-play app-btn-icon"></i>
+                        <div class="app-btn-text">
+                            <small>Disponible sur</small>
+                            <span>Google Play</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="app-image">
+                <img src="Free_iPhone_16_Mockup_5.png" alt="Application Mobile YAS">
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="newsletter-container">
+            <div class="newsletter-box">
+                <h3>Abonnez-vous à notre newsletter</h3>
+                <p>Recevez les dernières actualités, offres spéciales et conseils directement dans votre boîte mail.</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Votre adresse email" required>
+                    <button type="submit" class="newsletter-btn">S'abonner</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="section-container">
+            <div class="section-title">
+                <h2>Contactez-nous</h2>
+                <p>Nous sommes à votre disposition pour répondre à toutes vos questions.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info-block">
+                    <h3>Informations de contact</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Adresse</h4>
+                                <p>Rue des Nîmes, Lomé, Togo</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Téléphone</h4>
+                                <a href="tel:+22822222222">+228 22 22 22 22</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <a href="mailto:contact@yas.tg">contact@yas.tg</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Heures d'ouverture</h4>
+                                <p>Lundi - Vendredi: 8h - 18h<br>Samedi: 9h - 13h</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Envoyez-nous un message</h3>
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nom complet</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Adresse email</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Sujet</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Envoyer le message <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-shape"></div>
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="logo2.png" alt="YAS Togo">
+                    </div>
+                    <p>YAS est le fournisseur d'accès internet haut débit leader au Togo, offrant des solutions de connexion innovantes pour les particuliers et les professionnels.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Accueil</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> À propos de nous</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Nos services</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Forfaits internet</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Nos services</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Internet résidentiel</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Internet professionnel</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Solutions hôtelières</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Installation sur mesure</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Support technique</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contactez-nous</h4>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="footer-contact-text">
+                            <p>Rue des Nîmes, Lomé, Togo</p>
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="footer-contact-text">
+                            <a href="tel:+22822222222">+228 22 22 22 22</a>
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="footer-contact-text">
+                            <a href="mailto:contact@yas.tg">contact@yas.tg</a>
+                        </div>
+                    </div>
+                    <div class="footer-newsletter">
+                        <h4>Newsletter</h4>
+                        <p>Abonnez-vous pour recevoir nos dernières offres et actualités.</p>
+                        <form class="newsletter-form">
+                            <input type="email" class="newsletter-input" placeholder="Votre email">
+                            <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 YAS Togo. Tous droits réservés. | <a href="#">Politique de confidentialité</a> | <a href="#">Conditions d'utilisation</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.querySelector('.preloader');
+            preloader.classList.add('fade-out');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const closeMenuBtn = document.querySelector('.close-menu-btn');
+        const mobileNav = document.querySelector('.mobile-nav');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileNav.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeMenuBtn.addEventListener('click', function() {
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileLinks = document.querySelectorAll('.mobile-nav a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Back to Top Button
+        const backToTopBtn = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
+        });
+
+        // Testimonial Slider
+        const track = document.querySelector('.testimonials-track');
+        const slides = Array.from(document.querySelectorAll('.testimonial-slide'));
+        const dots = Array.from(document.querySelectorAll('.slider-dot'));
+        const prevBtn = document.querySelector('.prev-arrow');
+        const nextBtn = document.querySelector('.next-arrow');
+
+        let currentIndex = 0;
+        const slideWidth = slides[0].getBoundingClientRect().width;
+
+        function updateSlider() {
+            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Next slide
+        nextBtn.addEventListener('click', function() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateSlider();
+        });
+
+        // Previous slide
+        prevBtn.addEventListener('click', function() {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateSlider();
+        });
+
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', function() {
+                currentIndex = index;
+                updateSlider();
+            });
+        });
+
+        // Auto slide
+        let slideInterval = setInterval(() => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateSlider();
+        }, 5000);
+
+        // Pause on hover
+        const sliderContainer = document.querySelector('.testimonials-slider');
+        sliderContainer.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+
+        sliderContainer.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateSlider();
+            }, 5000);
+        });
+
+        // Animate stats counter
+        const statNumbers = document.querySelectorAll('.stat-number');
+        const statsSection = document.querySelector('.stats');
+
+        function animateStats() {
+            const sectionTop = statsSection.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (sectionTop < windowHeight - 100) {
+                statNumbers.forEach(stat => {
+                    const target = parseInt(stat.getAttribute('data-count'));
+                    let count = 0;
+                    const increment = target / 50;
+
+                    const timer = setInterval(() => {
+                        count += increment;
+                        if (count >= target) {
+                            count = target;
+                            clearInterval(timer);
+                        }
+                        stat.textContent = Math.floor(count);
+                    }, 20);
+                });
+
+                // Remove event listener after animation
+                window.removeEventListener('scroll', animateStats);
+            }
+        }
+
+        window.addEventListener('scroll', animateStats);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Here you would typically send the form data to a server
+                // For demo purposes, we'll just show an alert
+                if (this.classList.contains('newsletter-form')) {
+                    alert('Merci pour votre abonnement à notre newsletter !');
+                } else if (this.classList.contains('contact-form')) {
+                    alert('Votre message a été envoyé avec succès. Nous vous contacterons bientôt !');
+                }
+                
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>
